@@ -1,7 +1,7 @@
-package com.adriforczek.vehicle.service;
+package com.adriforczek.vehicles.service;
 
-import com.adriforczek.vehicle.domain.car.Car;
-import com.adriforczek.vehicle.domain.car.CarRepository;
+import com.adriforczek.vehicles.domain.car.Car;
+import com.adriforczek.vehicles.domain.car.CarRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
 

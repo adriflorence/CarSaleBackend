@@ -1,4 +1,4 @@
-package com.adriforczek.vehicle.domain;
+package com.adriforczek.vehicles.domain;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;

@@ -1,8 +1,8 @@
-package com.adriforczek.vehicle.domain.car;
+package com.adriforczek.vehicles.domain.car;
 
 
-import com.adriforczek.vehicle.domain.Condition;
-import com.adriforczek.vehicle.domain.Location;
+import com.adriforczek.vehicles.domain.Condition;
+import com.adriforczek.vehicles.domain.Location;
 import java.time.LocalDateTime;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;

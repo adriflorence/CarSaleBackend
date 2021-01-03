@@ -1,4 +1,4 @@
-package com.adriforczek.vehicle.domain;
+package com.adriforczek.vehicles.domain;
 
 /**
  * Available values for condition of a given car.
