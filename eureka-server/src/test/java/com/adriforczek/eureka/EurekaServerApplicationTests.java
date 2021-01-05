@@ -1,10 +1,10 @@
-package com.adriforczek.vehicleapi;
+package com.adriforczek.eureka;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class VehicleApiApplicationTests {
+class EurekaServerApplicationTests {
 
 	@Test
 	void contextLoads() {
