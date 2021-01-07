@@ -29,7 +29,7 @@ public class CarService {
      * Gathers a list of all vehicles
      * @return a list of all vehicles in the CarRepository
      */
-    public List<Car> list() {
+    public List<Car> listCars() {
         return repository.findAll();
     }
 
@@ -46,12 +46,11 @@ public class CarService {
         }
 
         /**
-         * TODO: Use the Pricing Web client you create in `VehiclesApiApplication`
-         *   to get the price based on the `id` input'
-         * TODO: Set the price of the car
          * Note: The car class file uses @transient, meaning you will need to call
          *   the pricing service each time to get the price.
          */
+        String price = priceClient.getPrice(id);
+        car.setPrice(price);
 
 
         /**
