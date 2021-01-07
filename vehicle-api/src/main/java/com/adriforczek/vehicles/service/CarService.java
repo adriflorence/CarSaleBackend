@@ -2,6 +2,7 @@ package com.adriforczek.vehicles.service;
 
 import com.adriforczek.vehicles.client.maps.MapsClient;
 import com.adriforczek.vehicles.client.prices.PriceClient;
+import com.adriforczek.vehicles.domain.Location;
 import com.adriforczek.vehicles.domain.car.Car;
 import com.adriforczek.vehicles.domain.car.CarRepository;
 import java.util.List;
@@ -46,21 +47,15 @@ public class CarService {
         }
 
         /**
-         * Note: The car class file uses @transient, meaning you will need to call
-         *   the pricing service each time to get the price.
+         * Note: The Car class and the Location class file uses @transient,
+         * meaning the Maps service needs to be called each time for the address.
          */
+
         String price = priceClient.getPrice(id);
         car.setPrice(price);
 
-
-        /**
-         * TODO: Use the Maps Web client you create in `VehiclesApiApplication`
-         *   to get the address for the vehicle. You should access the location
-         *   from the car object and feed it to the Maps service.
-         * TODO: Set the location of the vehicle, including the address information
-         * Note: The Location class file also uses @transient for the address,
-         * meaning the Maps service needs to be called each time for the address.
-         */
+        Location location = mapsClient.getAddress(car.getLocation());
+        car.setLocation(location);
 
         return car;
     }
