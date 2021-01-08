@@ -1,7 +1,11 @@
-package com.udacity.pricing.entity;
+package com.udacity.pricing.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 /**
@@ -13,23 +17,28 @@ public class Price {
     @Id
     private Long vehicleId;
 
-    private String currency;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Currency currency;
+
+    @NotNull
+    @Min(message = "Price cannot be negative", value = 0)
     private BigDecimal price;
 
     public Price() {
     }
 
-    public Price(String currency, BigDecimal price, Long vehicleId) {
+    public Price(Currency currency, BigDecimal price, Long vehicleId) {
         this.currency = currency;
         this.price = price;
         this.vehicleId = vehicleId;
     }
 
-    public String getCurrency() {
+    public Currency getCurrency() {
         return currency;
     }
 
-    public void setCurrency(String currency) {
+    public void setCurrency(Currency currency) {
         this.currency = currency;
     }
 
