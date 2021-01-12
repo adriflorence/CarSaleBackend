@@ -5,6 +5,8 @@ import com.adriforczek.vehicles.client.prices.PriceClient;
 import com.adriforczek.vehicles.domain.Location;
 import com.adriforczek.vehicles.domain.car.Car;
 import com.adriforczek.vehicles.domain.car.CarRepository;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -69,12 +71,13 @@ public class CarService {
         if (car.getId() != null) {
             return repository.findById(car.getId())
                     .map(carToBeUpdated -> {
+                        carToBeUpdated.setModifiedAt(LocalDateTime.now());
                         carToBeUpdated.setDetails(car.getDetails());
                         carToBeUpdated.setLocation(car.getLocation());
                         return repository.save(carToBeUpdated);
                     }).orElseThrow(CarNotFoundException::new);
         }
-
+        car.setCreatedAt(LocalDateTime.now());
         return repository.save(car);
     }
 
