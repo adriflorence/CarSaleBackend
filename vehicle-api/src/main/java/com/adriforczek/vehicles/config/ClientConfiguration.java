@@ -1,6 +1,7 @@
 package com.adriforczek.vehicles.config;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -9,13 +10,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class ClientConfiguration {
 
     @Bean
-    public WebClient maps() {
-        return WebClient.create("maps-service");
+    public WebClient maps(@Value("${maps.endpoint}") String endpoint) {
+        return WebClient.create(endpoint);
     }
 
     @Bean
-    public WebClient pricing() {
-        return WebClient.create("pricing-service");
+    public WebClient pricing(@Value("${pricing.endpoint}") String endpoint) {
+        return WebClient.create(endpoint);
     }
 
     @Bean
